@@ -1,5 +1,5 @@
 import mineflayer from 'mineflayer';
-import { worldToBlueprint, blueprintToTask } from 'construction_tasks.js';
+import { worldToBlueprint, blueprintToTask } from './redstone_tasks.js';
 import fs from 'fs';
 import { start } from 'repl';
 
@@ -12,20 +12,24 @@ const bot = mineflayer.createBot({
 
 bot.on('spawn', async () => {
     console.log("Bot spawned. Starting blueprint check...");
-    // set this to be minX, minY, minZ
+    // TODO: Set the startCoord into player position. Start from south-west corner of cuboid. Set to floor.
     const startCoord = {
-        x: -124, 
-        y: 1, 
-        z: 133,
+        x: 1, 
+        y: -60, 
+        z: 3,
     }
     bot.chat(`/tp andy ${startCoord.x} ${startCoord.y} ${startCoord.z}`);
-    const yOffset = 2;
-    const xOffset = 30;
-    const zOffset = 20;
 
-    const taskFilePath = '';
-    const task_name = "flower_three_agents";
+    // TODO: make the offset automatic? For now annotator will calculate them themselves in Minecraft
+    const yOffset = 3;
+    const xOffset = 6;
+    const zOffset = 6;
+
+    const taskFilePath = '../blueprints/level_1/redstone_door.json';
+    const task_name = "redstone_door_iron";
     
+    // TODO: restructure the json field
+    const prompt = "Build the following redstone structure"
 
     setTimeout(async () => {
         let task_blueprint = await worldToBlueprint(startCoord, yOffset, xOffset, zOffset, bot);
@@ -40,7 +44,8 @@ bot.on('spawn', async () => {
         }
         console.log("Blueprint generated:", task_blueprint.levels[0].coordinates);
 
-        const task = blueprintToTask(task_blueprint, 3);
+        // TODO: remove legacy json fields (e.g num_agent)
+        const task = blueprintToTask(task_blueprint, 1, prompt);
         const task_collection = {}
         task_collection[task_name] = task;
 

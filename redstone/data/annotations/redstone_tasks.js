@@ -1,7 +1,4 @@
 import {Vec3} from 'vec3';
-
-// TODO: CHANGE THIS FOR REDSTONE COMPATIBLITY
-
 export class ConstructionTaskValidator {
     constructor(data, agent) {
         this.blueprint = new Blueprint(data.blueprint);
@@ -1001,6 +998,18 @@ async function getBlockName(bot, coordinate) {
     return blockAtLocation ? bot.registry.blocks[blockAtLocation.type].name : "air";
 }
 
+// TODO: Use this function?
+export async function getBlockProperties(bot, coordinate) {
+    const position = new Vec3(coordinate.x, coordinate.y, coordinate.z);
+    const block = bot.blockAt(position);
+    let property = null;
+    if (block && block.getProperties) {
+        property = block.getProperties();
+        // console.log(property);
+    }
+    return property;
+}
+
 /**
  * Converts a world location to a blueprint. takes some time to ensure that the chunks are loaded before conversion.
  * @param startCoord - [x,y,z] that signifies the start of the blueprint
@@ -1028,8 +1037,22 @@ export async function worldToBlueprint(startCoord, y_amount, x_amount, z_amount,
                     z: startCoord.z + z
                 };
                 await bot.waitForChunksToLoad(worldCoord);
-                const blockName = await getBlockName(bot, worldCoord);
-                row.push(blockName);
+                // TODO: change this into function??
+                const position = new Vec3(worldCoord.x, worldCoord.y, worldCoord.z);
+                const block = bot.blockAt(position);
+                let blockName = 'air';
+                let blockProperties = null;
+                if (block) {
+                    blockName = block.name;
+                    if (block.getProperties) {
+                        blockProperties = block.getProperties();
+                        console.log(blockProperties);
+                    }
+                }
+                row.push({
+                    name: blockName,
+                    properties: blockProperties,
+                });
                 if (blockName !== 'air') {
                     materials[blockName] = (materials[blockName] || 0) + 1;
                 }
@@ -1050,7 +1073,7 @@ export async function worldToBlueprint(startCoord, y_amount, x_amount, z_amount,
     return blueprint_data
 }
 
-export function blueprintToTask(blueprint_data, num_agents) {
+export function blueprintToTask(blueprint_data, num_agents, prompt) {
     let initialInventory = {}
     for (let j = 0; j < num_agents; j++) {
         initialInventory[JSON.stringify(j)] = {"diamond_pickaxe": 1, "diamond_axe": 1, "diamond_shovel": 1};
@@ -1065,9 +1088,7 @@ export function blueprintToTask(blueprint_data, num_agents) {
 
     const task = {
         type: "construction",
-        goal: "Make a structure with the blueprint below",
-        conversation: "Let's share materials and make a structure with the blueprint",
-        agent_count: num_agents,
+        prompt: prompt,
         blueprint: blueprint_data,
         initial_inventory: initialInventory,
     };

@@ -1,0 +1,545 @@
+{
+  "redstone_door_iron": {
+    "type": "construction",
+    "prompt": "Build the following redstone structure",
+    "blueprint": {
+      "materials": {
+        "birch_planks": 2,
+        "lever": 1,
+        "stripped_oak_log": 2,
+        "iron_door": 2
+      },
+      "levels": [
+        {
+          "level": 0,
+          "coordinates": [
+            1,
+            -60,
+            3
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "birch_planks",
+                "properties": {}
+              },
+              {
+                "name": "lever",
+                "properties": {
+                  "powered": false,
+                  "facing": "north",
+                  "face": "wall"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "stripped_oak_log",
+                "properties": {
+                  "axis": "y"
+                }
+              },
+              {
+                "name": "iron_door",
+                "properties": {
+                  "powered": false,
+                  "open": false,
+                  "hinge": "left",
+                  "half": "lower",
+                  "facing": "south"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        },
+        {
+          "level": 1,
+          "coordinates": [
+            1,
+            -59,
+            3
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "birch_planks",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "stripped_oak_log",
+                "properties": {
+                  "axis": "y"
+                }
+              },
+              {
+                "name": "iron_door",
+                "properties": {
+                  "powered": false,
+                  "open": false,
+                  "hinge": "left",
+                  "half": "upper",
+                  "facing": "south"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        },
+        {
+          "level": 2,
+          "coordinates": [
+            1,
+            -58,
+            3
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "initial_inventory": {
+      "0": {
+        "diamond_pickaxe": 1,
+        "diamond_axe": 1,
+        "diamond_shovel": 1,
+        "birch_planks": 2,
+        "lever": 1,
+        "stripped_oak_log": 2,
+        "iron_door": 2
+      }
+    }
+  }
+}
