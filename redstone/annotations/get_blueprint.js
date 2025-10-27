@@ -3,6 +3,8 @@ import { worldToBlueprint, blueprintToTask } from './redstone_tasks.js';
 import fs from 'fs';
 import { start } from 'repl';
 
+const playerName = 'Sirlol';
+
 const bot = mineflayer.createBot({
     host: 'localhost', // Replace with your server IP or hostname
     port: 55916,       // Replace with your server port
@@ -16,8 +18,7 @@ const task_name = "redstone_door_iron";
 const prompt = "Build the following redstone structure"
 
 bot.on('spawn', async () => {
-    console.log("Bot spawned. Starting blueprint check...");
-    // TODO: Set the startCoord into player position. Start from south-west corner of cuboid. Set to floor.
+    bot.chat(`/tp @s ${playerName}`);
     await new Promise(resolve => setTimeout(resolve, 1000));
     const currentPos = bot.entity.position;
     const startCoord = {
@@ -25,7 +26,7 @@ bot.on('spawn', async () => {
         y: Math.floor(currentPos.y), 
         z: Math.floor(currentPos.z),
     };
-
+    
     
     console.log(`Starting from position: ${startCoord.x}, ${startCoord.y}, ${startCoord.z}`);
     bot.chat(`/tp andy ${startCoord.x} ${startCoord.y} ${startCoord.z}`);
