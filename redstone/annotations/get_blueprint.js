@@ -10,14 +10,24 @@ const bot = mineflayer.createBot({
     // password: 'your_bot_password' // Only if the server has online-mode=true
 });
 
+const directory = 'data/blueprints/level_1';
+const filename = 'redstone_door.json';
+const task_name = "redstone_door_iron";
+const prompt = "Build the following redstone structure"
+
 bot.on('spawn', async () => {
     console.log("Bot spawned. Starting blueprint check...");
     // TODO: Set the startCoord into player position. Start from south-west corner of cuboid. Set to floor.
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const currentPos = bot.entity.position;
     const startCoord = {
-        x: 1, 
-        y: -60, 
-        z: 3,
-    }
+        x: Math.floor(currentPos.x), 
+        y: Math.floor(currentPos.y), 
+        z: Math.floor(currentPos.z),
+    };
+
+    
+    console.log(`Starting from position: ${startCoord.x}, ${startCoord.y}, ${startCoord.z}`);
     bot.chat(`/tp andy ${startCoord.x} ${startCoord.y} ${startCoord.z}`);
 
     // TODO: make the offset automatic? For now annotator will calculate them themselves in Minecraft
@@ -25,11 +35,7 @@ bot.on('spawn', async () => {
     const xOffset = 6;
     const zOffset = 6;
 
-    const taskFilePath = '../blueprints/level_1/redstone_door.json';
-    const task_name = "redstone_door_iron";
-    
-    // TODO: restructure the json field
-    const prompt = "Build the following redstone structure"
+    // const taskFilePath = '../blueprints/level_1/redstone_door.json';
 
     setTimeout(async () => {
         let task_blueprint = await worldToBlueprint(startCoord, yOffset, xOffset, zOffset, bot);
@@ -44,17 +50,21 @@ bot.on('spawn', async () => {
         }
         console.log("Blueprint generated:", task_blueprint.levels[0].coordinates);
 
-        // TODO: remove legacy json fields (e.g num_agent)
-        const task = blueprintToTask(task_blueprint, 1, prompt);
+        const task = blueprintToTask(task_blueprint, prompt, 1);
         const task_collection = {}
         task_collection[task_name] = task;
 
-        fs.writeFileSync(taskFilePath, JSON.stringify(task_collection, null, 2), (err) => {
-            if (err) {
-                console.error('Error writing task to file:', err);
-            } else {
-                console.log('Task dumped to file successfully.');
+        try {
+            // ✅ Create directory if it doesn't exist
+            if (!fs.existsSync(directory)) {
+                fs.mkdirSync(directory, { recursive: true });
+                console.log(`Created directory: ${directory}`);
             }
-        });
-    }, 5000); // Delay of 5 seconds (5000 milliseconds)
+            
+            fs.writeFileSync(`${directory}/${filename}`, JSON.stringify(task_collection, null, 2));
+            console.log('Task dumped to file successfully.');
+        } catch (err) {
+            console.error('Error writing task to file:', err);
+        }
+    }, 5000);
 });

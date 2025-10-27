@@ -1,10 +1,20 @@
 {
   "redstone_door_iron": {
-    "type": "construction",
+    "type": "redstone",
     "prompt": "Build the following redstone structure",
+    "initial_inventory": {
+      "0": {
+        "diamond_pickaxe": 1,
+        "diamond_axe": 1,
+        "diamond_shovel": 1,
+        "lever": 1,
+        "stripped_oak_log": 2,
+        "iron_door": 2
+      }
+    },
+    "diff": 1,
     "blueprint": {
       "materials": {
-        "birch_planks": 2,
         "lever": 1,
         "stripped_oak_log": 2,
         "iron_door": 2
@@ -50,7 +60,7 @@
                 "properties": {}
               },
               {
-                "name": "birch_planks",
+                "name": "air",
                 "properties": {}
               },
               {
@@ -228,7 +238,7 @@
                 "properties": {}
               },
               {
-                "name": "birch_planks",
+                "name": "air",
                 "properties": {}
               },
               {
@@ -529,17 +539,6 @@
           ]
         }
       ]
-    },
-    "initial_inventory": {
-      "0": {
-        "diamond_pickaxe": 1,
-        "diamond_axe": 1,
-        "diamond_shovel": 1,
-        "birch_planks": 2,
-        "lever": 1,
-        "stripped_oak_log": 2,
-        "iron_door": 2
-      }
     }
   }
 }

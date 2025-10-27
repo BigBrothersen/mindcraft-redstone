@@ -1073,12 +1073,11 @@ export async function worldToBlueprint(startCoord, y_amount, x_amount, z_amount,
     return blueprint_data
 }
 
-export function blueprintToTask(blueprint_data, num_agents, prompt) {
+export function blueprintToTask(blueprint_data, prompt, diff) {
     let initialInventory = {}
-    for (let j = 0; j < num_agents; j++) {
-        initialInventory[JSON.stringify(j)] = {"diamond_pickaxe": 1, "diamond_axe": 1, "diamond_shovel": 1};
-    }
-
+    initialInventory[JSON.stringify(0)] = {"diamond_pickaxe": 1, "diamond_axe": 1, "diamond_shovel": 1};
+    
+    let num_agents = 1;
     let give_agent = 0;
     console.log("materials", blueprint_data.materials)
     for (const key of Object.keys(blueprint_data.materials)) {
@@ -1087,10 +1086,11 @@ export function blueprintToTask(blueprint_data, num_agents, prompt) {
     }
 
     const task = {
-        type: "construction",
+        type: "redstone",
         prompt: prompt,
-        blueprint: blueprint_data,
         initial_inventory: initialInventory,
+        diff: diff,
+        blueprint: blueprint_data,
     };
     return task;
 }
