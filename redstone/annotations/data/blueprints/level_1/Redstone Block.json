@@ -1,0 +1,57 @@
+{
+  "Redstone Block": {
+    "type": "redstone",
+    "prompt": 1,
+    "initial_inventory": {
+      "0": {
+        "diamond_pickaxe": 1,
+        "diamond_axe": 1,
+        "diamond_shovel": 1,
+        "oak_sign": 1,
+        "redstone_block": 1
+      }
+    },
+    "diff": "Build the following redstone structure",
+    "blueprint": {
+      "materials": {
+        "oak_sign": 1,
+        "redstone_block": 1
+      },
+      "levels": [
+        {
+          "level": 0,
+          "coordinates": [
+            -99,
+            -60,
+            -92
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "oak_sign",
+                "properties": {
+                  "waterlogged": false,
+                  "rotation": "4"
+                }
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_block",
+                "properties": {}
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

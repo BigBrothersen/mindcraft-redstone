@@ -15,17 +15,23 @@
     "diff": 1,
     "blueprint": {
       "materials": {
+<<<<<<< Updated upstream:redstone/annotations/data/blueprints/level_1/redstone_door.json
         "lever": 1,
         "stripped_oak_log": 2,
         "iron_door": 2
+=======
+        "redstone_wire": 6,
+        "target": 1,
+        "repeater": 5
+>>>>>>> Stashed changes:redstone/data/blueprints/level_1/redstone_door.json
       },
       "levels": [
         {
           "level": 0,
           "coordinates": [
-            1,
+            -13,
             -60,
-            3
+            -13
           ],
           "placement": [
             [
@@ -34,6 +40,72 @@
                 "properties": {}
               },
               {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "none",
+                  "south": "side",
+                  "power": "0",
+                  "north": "none",
+                  "east": "side"
+                }
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "side",
+                  "south": "none",
+                  "power": "0",
+                  "north": "none",
+                  "east": "side"
+                }
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "side",
+                  "south": "none",
+                  "power": "0",
+                  "north": "none",
+                  "east": "side"
+                }
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "side",
+                  "south": "none",
+                  "power": "0",
+                  "north": "none",
+                  "east": "side"
+                }
+              },
+              {
+                "name": "target",
+                "properties": {
+                  "power": "0"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "none",
+                  "south": "side",
+                  "power": "0",
+                  "north": "side",
+                  "east": "none"
+                }
+              },
+              {
                 "name": "air",
                 "properties": {}
               },
@@ -60,62 +132,64 @@
                 "properties": {}
               },
               {
+<<<<<<< Updated upstream:redstone/annotations/data/blueprints/level_1/redstone_door.json
                 "name": "air",
                 "properties": {}
+=======
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "none",
+                  "south": "none",
+                  "power": "0",
+                  "north": "side",
+                  "east": "side"
+                }
+>>>>>>> Stashed changes:redstone/data/blueprints/level_1/redstone_door.json
               },
               {
-                "name": "lever",
+                "name": "repeater",
+                "properties": {
+                  "powered": true,
+                  "locked": false,
+                  "facing": "west",
+                  "delay": "4"
+                }
+              },
+              {
+                "name": "repeater",
+                "properties": {
+                  "powered": true,
+                  "locked": false,
+                  "facing": "west",
+                  "delay": "4"
+                }
+              },
+              {
+                "name": "repeater",
+                "properties": {
+                  "powered": true,
+                  "locked": false,
+                  "facing": "west",
+                  "delay": "4"
+                }
+              },
+              {
+                "name": "repeater",
                 "properties": {
                   "powered": false,
-                  "facing": "north",
-                  "face": "wall"
+                  "locked": false,
+                  "facing": "west",
+                  "delay": "4"
                 }
               },
               {
-                "name": "air",
-                "properties": {}
-              },
-              {
-                "name": "air",
-                "properties": {}
-              },
-              {
-                "name": "air",
-                "properties": {}
-              }
-            ],
-            [
-              {
-                "name": "air",
-                "properties": {}
-              },
-              {
-                "name": "air",
-                "properties": {}
-              },
-              {
-                "name": "stripped_oak_log",
-                "properties": {
-                  "axis": "y"
-                }
-              },
-              {
-                "name": "iron_door",
+                "name": "repeater",
                 "properties": {
                   "powered": false,
-                  "open": false,
-                  "hinge": "left",
-                  "half": "lower",
-                  "facing": "south"
+                  "locked": false,
+                  "facing": "west",
+                  "delay": "4"
                 }
-              },
-              {
-                "name": "air",
-                "properties": {}
-              },
-              {
-                "name": "air",
-                "properties": {}
               }
             ],
             [
@@ -142,6 +216,7 @@
               {
                 "name": "air",
                 "properties": {}
+<<<<<<< Updated upstream:redstone/annotations/data/blueprints/level_1/redstone_door.json
               }
             ],
             [
@@ -530,6 +605,8 @@
               {
                 "name": "air",
                 "properties": {}
+=======
+>>>>>>> Stashed changes:redstone/data/blueprints/level_1/redstone_door.json
               },
               {
                 "name": "air",
@@ -539,6 +616,19 @@
           ]
         }
       ]
+<<<<<<< Updated upstream:redstone/annotations/data/blueprints/level_1/redstone_door.json
+=======
+    },
+    "initial_inventory": {
+      "0": {
+        "diamond_pickaxe": 1,
+        "diamond_axe": 1,
+        "diamond_shovel": 1,
+        "redstone_wire": 6,
+        "target": 1,
+        "repeater": 5
+      }
+>>>>>>> Stashed changes:redstone/data/blueprints/level_1/redstone_door.json
     }
   }
 }

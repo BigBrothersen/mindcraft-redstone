@@ -1,0 +1,44 @@
+{
+  "Redstone": {
+    "type": "redstone",
+    "prompt": 1,
+    "initial_inventory": {
+      "0": {
+        "diamond_pickaxe": 1,
+        "diamond_axe": 1,
+        "diamond_shovel": 1,
+        "redstone_wire": 1
+      }
+    },
+    "diff": "Build the following redstone structure",
+    "blueprint": {
+      "materials": {
+        "redstone_wire": 1
+      },
+      "levels": [
+        {
+          "level": 0,
+          "coordinates": [
+            -94,
+            -60,
+            -91
+          ],
+          "placement": [
+            [
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "side",
+                  "south": "side",
+                  "power": "0",
+                  "north": "side",
+                  "east": "side"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

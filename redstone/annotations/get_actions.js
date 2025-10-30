@@ -9,12 +9,12 @@ const bot = mineflayer.createBot({
 });
 
 let recording = false;
-let log = {};
+let log = [];
 let playerName = 'Sirlol'; // change this to your Minecraft username
 
 let position = null;
 const directory = 'data/actions/level_1';
-const filename = 'redstone_door.json';
+let filename = 'redstone_door.json'; // Made this variable so it can be changed
 
 
 function logAction(action) {
@@ -31,6 +31,20 @@ bot.on('spawn', () => {
 
 bot.on('chat', (username, message) => {
   if (username !== playerName) return;
+  
+  // Set task name command
+  if (message.startsWith('!name ')) {
+    const newTaskName = message.replace('!name ', '').trim();
+    if (newTaskName) {
+      // Convert to lowercase and replace spaces with underscores
+      filename = newTaskName.toLowerCase().replace(/\s+/g, '_') + '.json';
+      bot.chat(`✅ Task name set to: "${filename}"`);
+    } else {
+      bot.chat("❌ Please provide a task name: '!name your_task_name'");
+    }
+    return;
+  }
+  
   if (message === '!start') {
     recording = true;
     log = [];
