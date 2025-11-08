@@ -14,7 +14,7 @@ let playerName = 'Sirlol'; // change this to your Minecraft username
 
 let position = null;
 const directory = 'data/actions/level_1';
-let filename = 'redstone_door.json'; // Made this variable so it can be changed
+let taskName = 'redstone_door.json'; // Made this variable so it can be changed
 
 
 function logAction(action) {
@@ -32,18 +32,25 @@ bot.on('spawn', () => {
 bot.on('chat', (username, message) => {
   if (username !== playerName) return;
   
-  // Set task name command
-  if (message.startsWith('!name ')) {
-    const newTaskName = message.replace('!name ', '').trim();
-    if (newTaskName) {
-      // Convert to lowercase and replace spaces with underscores
-      filename = newTaskName.toLowerCase().replace(/\s+/g, '_') + '.json';
-      bot.chat(`✅ Task name set to: "${filename}"`);
-    } else {
-      bot.chat("❌ Please provide a task name: '!name your_task_name'");
+  if (message.startsWith('!n ')) {
+        const newTaskName = message.replace('!n ', '').trim();
+        if (newTaskName) {
+            taskName = newTaskName.toLowerCase().replace(/\s+/g, '_');
+            bot.chat(`Task name set to: "${bot.taskName}"`);
+        } else {
+            bot.chat("Please provide a task name: '!n {task_name}'");
+        }
+        return;
+    } else if(message.startsWith('!name ')){ 
+        const newTaskName = message.replace('!name ', '').trim();
+        if (newTaskName) {
+            taskName = newTaskName.toLowerCase().replace(/\s+/g, '_');
+            bot.chat(`Task name set to: "${bot.taskName}"`);
+        } else {
+            bot.chat("Please provide a task name: '!name {task_name}'");
+        }
+        return;
     }
-    return;
-  }
   
   if (message === '!start') {
     recording = true;
@@ -53,8 +60,8 @@ bot.on('chat', (username, message) => {
   if (message === '!stop') {
     recording = false;
     console.log('Recording stopped.');
-    fs.writeFileSync(`${directory}/${filename}`, JSON.stringify(log, null, 2));
-    console.log(`Actions saved to ${directory}/${filename}`);
+    fs.writeFileSync(`${directory}/${taskName}`, JSON.stringify(log, null, 2));
+    console.log(`Actions saved to ${directory}/${taskName}`);
   }
 });
 
