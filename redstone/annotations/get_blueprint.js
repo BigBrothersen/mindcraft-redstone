@@ -74,7 +74,7 @@ bot.on('chat', async (username, message) => {
         // Reset boundary data if anchor is being set again
         if (bot.state === State.BOUNDARY_SET) {
             bot.boundaryData = null;
-            bot.chat("🔄 Resetting boundary data since anchor is being changed...");
+            bot.chat("Resetting boundary data since anchor is being changed...");
             bot.state = State.WAITING;
         }
         
@@ -152,10 +152,10 @@ bot.on('chat', async (username, message) => {
         bot.anchorPos = null;
         bot.boundaryData = null;
         bot.state = State.WAITING;
-        bot.chat("All settings reset! Ready to start over.");
+        bot.chat("All settings reset except Name and Prompt!");
         
     // Generate Blueprint command
-    } else if (message === '!g') {
+    } else if (message === '!g' || message === '!gen') {
         if (bot.state === State.BOUNDARY_SET && bot.boundaryData) {
             showStatus(getPlayerPosition(player));
 
