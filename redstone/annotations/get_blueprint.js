@@ -4,6 +4,7 @@ import fs from 'fs';
 
 const PLAYER_NAME = "Sirlol" 
 const CURRENT_LEVEL = "level_1"
+const PORT_NUMBER = 55916
 
 // Define setup states as constants (like enum)
 const State = {
@@ -14,13 +15,14 @@ const State = {
 
 const bot = mineflayer.createBot({
     host: 'localhost',
-    port: 55916,
+    port: PORT_NUMBER,
     username: 'andy',
 });
 
 // Store setup state and boundary data
 bot.anchorPos = null;
 bot.taskName = "Empty";
+bot.prompt = "Build the following redstone structure"
 bot.state = State.WAITING;
 bot.boundaryData = null;
 
@@ -47,6 +49,23 @@ bot.on('chat', async (username, message) => {
             bot.chat("Please provide a task name: '!name {task_name}'");
         }
         return;
+    }
+
+    // Set Prompt
+    if (message === '!p') {
+        const newPrompt = message.replace('!p ', '').trim();
+        if (newPrompt){
+            bot.prompt = newPrompt;
+        } else {
+            bot.chat("Please provide a prompt: '!p {your prompt}'");
+        }
+    } else if (message === '!prompt') {
+        const newPrompt = message.replace('!prompt ', '').trim();
+        if (newPrompt){
+            bot.prompt = newPrompt;
+        } else {
+            bot.chat("Please provide a prompt: '!prompt {your prompt}'");
+        }
     }
 
     // Set Anchor command
@@ -136,7 +155,7 @@ bot.on('chat', async (username, message) => {
         bot.chat("All settings reset! Ready to start over.");
         
     // Generate Blueprint command
-    } else if (message === '!gb') {
+    } else if (message === '!g') {
         if (bot.state === State.BOUNDARY_SET && bot.boundaryData) {
             showStatus(getPlayerPosition(player));
 
@@ -145,6 +164,7 @@ bot.on('chat', async (username, message) => {
             bot.chat(`Blueprint "${bot.taskName}" generated successfully!`);
             
             // Reset for next scan
+            bot.taskName = "Empty";
             bot.state = State.WAITING;
             bot.boundaryData = null;
             bot.anchorPos = null;
@@ -156,7 +176,9 @@ bot.on('chat', async (username, message) => {
     // Status command
     } else if (message === '!s' || message === '!status') {
         showStatus(getPlayerPosition(player));
-
+     // Show Prompt command
+    } else if (message === '!sp' || message === '!showprompt') {
+        bot.chat(`Current Prompt: "${bot.prompt}"`);
     // Exit command
     } else if (message === '!exit' || message === '!quit') {
         bot.chat("Blueprint Scanner Exiting. Goodbye!");
@@ -194,10 +216,9 @@ async function generateBlueprint(startCoord, ySize, xSize, zSize) {
 
         // Save to file using the dynamic task name
         const taskFilePath = `./data/blueprints/${CURRENT_LEVEL}/${bot.taskName}.json`;
-        const prompt = "Build the following redstone structure";
         
         // Convert blueprint to task format (same as original)
-        const task = blueprintToTask(task_blueprint, prompt, 1);
+        const task = blueprintToTask(task_blueprint, bot.prompt, 1);
         const task_collection = {};
         task_collection[bot.taskName] = task;
 
@@ -262,14 +283,16 @@ function showStatus(playerPos) {
 
 function showHelp() {
     bot.chat("BLUEPRINT SCANNER HELP:");
-    bot.chat("1. '!n {name}' - Set blueprint filename");
-    bot.chat("2. '!sa' - Set anchor");
-    bot.chat("3. '!sb' - Set boundary");
-    bot.chat("4. '!g' - Generate blueprint");
-    bot.chat("5. '!c' or '!r' - Reset everything");
-    bot.chat("6. '!s' - Check status");
-    bot.chat("7. '!exit' - Shut down");
-    bot.chat("8. '!help' - Show this help");
+    bot.chat("1. '!n {name}' - Set Blueprint Filename");
+    bot.chat("2. '!p {prompt}' - Set Generation Prompt");
+    bot.chat("3. '!sa' - Set Anchor");
+    bot.chat("4. '!sb' - Set Boundary");
+    bot.chat("5. '!g' - Generate Blueprint");
+    bot.chat("6. '!c' or '!r' - Reset Everything");
+    bot.chat("7. '!s' - Check Status");
+    bot.chat("8. '!s' - Check Prompt");
+    bot.chat("9. '!exit' - Shutdown");
+    bot.chat("10. '!help' - Show This Help");
 }
 
 bot.on('spawn', async () => {
