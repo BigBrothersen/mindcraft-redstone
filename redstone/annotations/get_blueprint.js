@@ -20,9 +20,11 @@ const bot = mineflayer.createBot({
 // Create setupState value
 
 // Store setup state
+// Store setup state and boundary data
 bot.anchorPos = null;
 bot.taskName = "Empty";
 bot.setupState = 'waiting';
+bot.boundaryData = null; // Store boundary info for !g command
 
 showHelp()
 
@@ -66,7 +68,7 @@ bot.on('chat', async (username, message) => {
     // Set boundary command 
     } else if (message === '!sb') {
         if (bot.setupState !== 'anchor') {
-            bot.chat("❌ Please set anchor first with 'sa'!");
+            bot.chat("❌ Please set anchor first with '!sa'!");
             return;
         }
         
@@ -82,7 +84,7 @@ bot.on('chat', async (username, message) => {
             z: Math.floor(player.position.z)
         };
         
-        // Set Start and End coordinates
+        // Calculate boundary coordinates
         const startCoord = {
             x: Math.min(bot.anchorPos.x, currentCoord.x),
             y: Math.min(bot.anchorPos.y, currentCoord.y),
@@ -95,38 +97,49 @@ bot.on('chat', async (username, message) => {
             z: Math.max(bot.anchorPos.z, currentCoord.z)
         };
         
-        // Calculate offset
+        // Calculate sizes
         const xSize = endCoord.x - startCoord.x + 1;
         const ySize = endCoord.y - startCoord.y + 1;
         const zSize = endCoord.z - startCoord.z + 1;
         
-        console.log(`Scanning area: ${xSize}x${ySize}x${zSize} from ${startCoord.x},${startCoord.y},${startCoord.z} to ${endCoord.x},${endCoord.y},${endCoord.z}`);
-        bot.chat(`Scanning area: ${xSize}x${ySize}x${zSize} blocks`);
+        // Store boundary data for later use
+        bot.boundaryData = {
+            startCoord: startCoord,
+            endCoord: endCoord,
+            xSize: xSize,
+            ySize: ySize,
+            zSize: zSize
+        };
+        
+        console.log(`Boundary set: ${xSize}x${ySize}x${zSize} from ${startCoord.x},${startCoord.y},${startCoord.z} to ${endCoord.x},${endCoord.y},${endCoord.z}`);
+        bot.chat(`✅ Boundary set: ${xSize}x${ySize}x${zSize} blocks`);
         bot.chat(`From: ${startCoord.x},${startCoord.y},${startCoord.z} to ${endCoord.x},${endCoord.y},${endCoord.z}`);
         
         bot.setupState = "finish";
-
-        // Give particle effects to the scan area (NEED)
-        // First remove the previous particle effects, then set the particle effects to the new area
-
         
-    // Set cancel command
+    // Generate blueprint command
     } else if (message === '!g') {
-        if (bot.setupState === "finish") {
+        if (bot.setupState === "finish" && bot.boundaryData) {
             // Show current status
             showStatus(getPlayerPosition(player));
 
-            // Remove the particle effects
+            // Remove the particle effects (if any)
 
-            // Generate the blueprint
+            // Generate the blueprint using stored boundary data
+            const { startCoord, ySize, xSize, zSize } = bot.boundaryData;
             await generateBlueprint(startCoord, ySize, xSize, zSize);
-            bot.chat(`❌ Blueprint ${bot.taskName} is generated.`);
+            bot.chat(`✅ Blueprint "${bot.taskName}" generated successfully!`);
             
             // Reset the setupState
             bot.setupState = "waiting";
+            bot.boundaryData = null; // Clear boundary data
         } else {
-            bot.chat(`❌ Blueprint ${bot.taskName} cannot be generated.`);
-            bot.chat(`Please set the name, anchor, and boundary first.`);
+            bot.chat(`❌ Cannot generate blueprint "${bot.taskName}"`);
+            if (bot.setupState !== "finish") {
+                bot.chat("Please complete the setup: !sa -> !sb");
+            } else if (!bot.boundaryData) {
+                bot.chat("Boundary data missing. Please set boundary again with !sb");
+            }
         }
     // Set status command
     } else if (message === '!s' || message === '!status') {
@@ -189,6 +202,7 @@ async function generateBlueprint(startCoord, ySize, xSize, zSize) {
         // Reset for next scan
         bot.anchorPos = null;
         bot.setupState = 'waiting';
+        bot.boundaryData = null;
         bot.chat("Blueprint creation completed! Ready for next scan.");
         
     } catch (error) {
@@ -209,15 +223,20 @@ function getPlayerPosition(player) {
 function showStatus(playerPos) {
     bot.chat(`Current status:`);
     bot.chat(`-  Task name: "${bot.taskName}"`);
-    bot.chat(`-  Your position: ${yourPos}`);
+    bot.chat(`-  Your position: ${playerPos}`);
     bot.chat(`-  Setup state: ${bot.setupState}`);
     if (bot.setupState === 'anchor' || bot.setupState === 'finish') {
         bot.chat(`-  Anchor: ${bot.anchorPos.x}, ${bot.anchorPos.y}, ${bot.anchorPos.z}`);
     } else {
         bot.chat(`-  Anchor: Not set`);
     }
-    if (bot.setupState == 'finish'){
-        bot.chat(`-  Bound: `)
+    if (bot.setupState === 'finish' && bot.boundaryData) {
+        const { startCoord, endCoord, xSize, ySize, zSize } = bot.boundaryData;
+        bot.chat(`-  Boundary: ${xSize}x${ySize}x${zSize} blocks`);
+        bot.chat(`-  From: ${startCoord.x},${startCoord.y},${startCoord.z}`);
+        bot.chat(`-  To: ${endCoord.x},${endCoord.y},${endCoord.z}`);
+    } else {
+        bot.chat(`-  Boundary: Not set`);
     }
 }
 
