@@ -1,0 +1,904 @@
+{
+  "and_gate_0": {
+    "type": "redstone",
+    "prompt": "Build the following redstone structure",
+    "initial_inventory": {
+      "0": {
+        "diamond_pickaxe": 1,
+        "diamond_axe": 1,
+        "diamond_shovel": 1,
+        "black_wool": 3,
+        "white_wool": 8,
+        "redstone_wire": 4,
+        "lever": 2,
+        "redstone_torch": 3,
+        "redstone_lamp": 1
+      }
+    },
+    "diff": 1,
+    "blueprint": {
+      "materials": {
+        "black_wool": 3,
+        "white_wool": 8,
+        "redstone_wire": 4,
+        "lever": 2,
+        "redstone_torch": 3,
+        "redstone_lamp": 1
+      },
+      "levels": [
+        {
+          "level": 0,
+          "coordinates": [
+            -97,
+            -60,
+            -74
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "black_wool",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "none",
+                  "south": "side",
+                  "power": "15",
+                  "north": "side",
+                  "east": "none"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "none",
+                  "south": "side",
+                  "power": "15",
+                  "north": "side",
+                  "east": "none"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "lever",
+                "properties": {
+                  "powered": true,
+                  "facing": "north",
+                  "face": "floor"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "lever",
+                "properties": {
+                  "powered": true,
+                  "facing": "north",
+                  "face": "floor"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        },
+        {
+          "level": 1,
+          "coordinates": [
+            -97,
+            -59,
+            -74
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "black_wool",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "white_wool",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "none",
+                  "south": "side",
+                  "power": "0",
+                  "north": "side",
+                  "east": "none"
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_torch",
+                "properties": {
+                  "lit": false
+                }
+              },
+              {
+                "name": "redstone_wire",
+                "properties": {
+                  "west": "side",
+                  "south": "none",
+                  "power": "0",
+                  "north": "side",
+                  "east": "side"
+                }
+              },
+              {
+                "name": "redstone_torch",
+                "properties": {
+                  "lit": false
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        },
+        {
+          "level": 2,
+          "coordinates": [
+            -97,
+            -58,
+            -74
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "black_wool",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_lamp",
+                "properties": {
+                  "lit": true
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "redstone_torch",
+                "properties": {
+                  "lit": true
+                }
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        },
+        {
+          "level": 3,
+          "coordinates": [
+            -97,
+            -57,
+            -74
+          ],
+          "placement": [
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ],
+            [
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              },
+              {
+                "name": "air",
+                "properties": {}
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}
