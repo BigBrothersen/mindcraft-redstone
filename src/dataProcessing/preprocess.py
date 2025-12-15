@@ -46,10 +46,14 @@ def processFile(filePath):
 
 def parse(source, output):
     
-    
+    counter = 0
     for file in list_files_recursively(source):
         
+        if 'action' in str(file):
+            print(file)
+            continue
         result = processFile(file)
+        counter += 1
         
         
         source = os.path.normpath(source)
@@ -60,6 +64,7 @@ def parse(source, output):
         os.makedirs(folder, exist_ok=True)
         with open(outputPath, 'w') as openFile:
             openFile.write(json.dumps(result, indent=2))
+    return counter
     
 
 
@@ -70,4 +75,5 @@ if __name__ == "__main__":
     parser.add_argument("-s", type=str, required=True)
     parser.add_argument("-o", type=str, required=True)
     args = parser.parse_args()
-    parse(args.s, args.o)
+    print('parsed files:')
+    print(parse(args.s, args.o))
